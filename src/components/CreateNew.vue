@@ -54,8 +54,6 @@
 </template>
 
 <script>
-// import store from '@/vuex/store'
-// import { mapGetters } from 'vuex'
   export default {
     data () {
       return {
@@ -79,43 +77,15 @@
         formData.append('image', this.imageUrl)
         formData.append('key', this.uniqueId)
 
-        // let file = new FormData()
-        // file.append('image', this.imageUrl)
-
-
-        // const url = 'http://localhost:8081/create'
-
-        // this.axios.post(url, formData,{headers: {
-        //       'Content-Type': 'multipart/form-data'
-        //   }
-        // })
-        // .then(function (response) {
-        //   console.log(response);
-        // })
-        // .catch(function (error) {
-        //   console.log(error);
-        // });
         this.$store.dispatch('submitForm', formData)
       },
       onPickFile () {
         this.$refs.fileInput.click()
       },
       onFilePicked (e) {
-      //   const files = e.target.files || e.dataTransfer.files
-
-      //   if (!files.length) 
-      //     return
-
-      //   const reader = new FileReader()
-      //   reader.addEventListener('load', () => {
-      //     this.imageUrl = reader.result
-      //   })
-      //   reader.readAsDataURL(files[0])
         this.imageUrl = this.$refs.fileInput.files[0];
       },
       testFunc () {
-        // const id = Date.now()
-
         console.log(this.isSubmited)
       }
     },
@@ -141,7 +111,6 @@
     },
     watch: {
       isSubmited () {
-        console.log("WATCH")
         this.title = ''
         this.content = ''
         this.imageUrl = ''

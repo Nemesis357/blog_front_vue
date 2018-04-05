@@ -30,9 +30,9 @@ export const store = new Vuex.Store({
    submitForm ({commit}, payload) {
    	const url = 'http://localhost:8081/create'
     axios.post(url, payload,{headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-              })
+          'Content-Type': 'multipart/form-data'
+      }
+    })
     .then(function (response) {
     	if (response.status === 200) {
     		commit('submited', true)
